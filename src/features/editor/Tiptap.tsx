@@ -1,11 +1,11 @@
 "use client";
 
+import { EditorContent, useEditor } from "@tiptap/react";
+import { useEffect, useMemo, useState } from "react";
 import Footer from "@/components/Footer";
 import { useImageControls } from "@/hooks/use-image-controls";
 import { useImageSelection } from "@/hooks/use-image-selection";
 import { Loading } from "@/styles/svg";
-import { EditorContent, useEditor } from "@tiptap/react";
-import { useEffect, useMemo, useState } from "react";
 import CalloutMenu from "./components/Callout/callout-menu";
 import BubbleMenuComp from "./components/Menus/BubbleMenu/index";
 import FixedMenuComp from "./components/Menus/FixedMenu/index";
@@ -75,7 +75,7 @@ const Tiptap = () => {
 	}
 
 	return (
-		<div className="w-full h-full shadow-sm relative max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-8xl">
+		<div className="w-full h-full shadow-sm relative flex flex-col">
 			{editor && (
 				<div className="sticky top-0 bg-white border-b border-gray-200 px-2 py-1">
 					<FixedMenuComp editor={editor} />
@@ -83,10 +83,10 @@ const Tiptap = () => {
 					<CalloutMenu editor={editor} />
 				</div>
 			)}
-			<div className="relative flex-1">
+			<div className="relative flex-1 overflow-auto">
 				{editor ? (
 					<EditorContent
-						className="w-full [&_.ProseMirror]:w-full [&_.ProseMirror]:max-w-none"
+						className="w-full h-full [&_.ProseMirror]:w-full [&_.ProseMirror]:max-w-none"
 						editor={editor}
 					/>
 				) : (

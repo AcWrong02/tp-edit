@@ -1,3 +1,4 @@
+import Sidebar from "@/components/SiderBar";
 import {
 	ResizableHandle,
 	ResizablePanel,
@@ -9,13 +10,11 @@ export default function Home() {
 	return (
 		<div className="h-screen w-full">
 			<ResizablePanelGroup direction="horizontal" className="h-full w-full">
-				<ResizablePanel defaultSize={25} maxSize={30} minSize={15}>
-					<div className="flex h-full items-center justify-center p-6">
-						<span className="font-semibold">Sidebar</span>
-					</div>
+				<ResizablePanel defaultSize={10} maxSize={15} minSize={10}>
+					<Sidebar />
 				</ResizablePanel>
 				<ResizableHandle withHandle />
-				<ResizablePanel defaultSize={75}>
+				<ResizablePanel defaultSize={90}>
 					<Tiptap />
 				</ResizablePanel>
 			</ResizablePanelGroup>
